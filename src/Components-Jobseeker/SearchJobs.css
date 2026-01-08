@@ -1,0 +1,151 @@
+.search-section {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.search-section .title {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 15px;
+  align-self: center;
+}
+
+.search-section .container {
+  display: flex;
+  gap: 20px;
+}
+
+.search-section .apply-filters-section {
+  width: 250px;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-section .main-jobs-section {
+  flex-grow: 1;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-section .apply-filters-section .filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: #007bff 2px solid;
+}
+
+.search-section .apply-filters-section .filter-header .apply-filter {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.search-section .apply-filters-section .filter-header .clear-all {
+  font-size: 14px;
+  color: #007bff;
+  cursor: pointer;
+}
+
+.search-section .apply-filters-section .filter-category {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  margin-left: 20px;
+  border-bottom: #007bff 2px solid;
+}
+
+.search-section .apply-filters-section .filter-category .title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* css for filter i changed */
+.job-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 16px;
+}
+
+.job-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.job-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.company-row {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.rating {
+  margin-left: 20px;
+  font-weight: 500;
+  color: #0f0f0f;
+}
+
+.logo-box img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+.job-info {
+  display: flex;
+  gap: 18px;
+  font-size: 14px;
+  color: #4b5563;
+  margin-top: 10px;
+}
+
+.job-info span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+}
+
+.job-footer {
+  margin-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.save-btn {
+  border: 1px solid #2563eb;
+  background: white;
+  color: #2563eb;
+  padding: 6px 14px;
+  border-radius: 8px;
+  margin-right: 8px;
+}
+
+.apply-btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 8px;
+}

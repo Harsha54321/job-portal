@@ -1,0 +1,130 @@
+.companyjobs-container {
+  width: 90%;
+  margin: auto;
+  font-family: "Inter", sans-serif;
+}
+
+.page-title {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.company-header {
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  margin-bottom: 40px;
+}
+
+.company-logo {
+  height: 80px;
+}
+
+.company-info h2 {
+  margin: 0;
+}
+
+.rating {
+  color: #444;
+  margin-top: 5px;
+}
+
+.tagline {
+  margin-top: 8px;
+  color: #666;
+}
+
+/* Job Card */
+.job-card {
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+}
+
+.job-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.company-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 10px;
+  background: #eef4ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: #1a73e8;
+  font-size: 20px;
+}
+
+.job-details p {
+  margin: 5px 0;
+}
+
+.badge {
+  background: #e2edff;
+  color: #1a73e8;
+  padding: 5px 12px;
+  border-radius: 8px;
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 13px;
+}
+
+/* Footer */
+.footer-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  color: #666;
+}
+
+/* Buttons */
+.action-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.save-btn {
+  padding: 10px 22px;
+  border-radius: 8px;
+  background: #e9eefc;
+  border: none;
+  cursor: pointer;
+}
+
+.apply-btn {
+  padding: 10px 22px;
+  border-radius: 8px;
+  background: #1a73e8;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* Highlights Card */
+.highlights-card {
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  margin-bottom: 50px;
+}
+
+.highlights-card ul li {
+  margin: 10px 0;
+}
+

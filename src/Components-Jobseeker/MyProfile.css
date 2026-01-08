@@ -1,0 +1,36 @@
+.profile-main-desc {
+    margin-top: 10rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5rem;
+    background-color: #1E88E50A;
+    height: 120px;
+    width: 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 15px;
+}
+
+.profile-main-desc h1{
+    color: #032240;
+}
+
+.profile-main-desc p{
+    color: #83858B;
+    text-align: center;
+}
+
+
+
+.myprofile-footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0; 
+}
