@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import breifcase from '../assets/header_case.png'
 import chat from '../assets/header_message.png'
 import bell from '../assets/header_bell.png'
@@ -13,17 +13,46 @@ import { JNotification } from './JNotification';
 import './SearchJobs.css'
 import { JobList } from '../../JobList';
 import { useEffect } from "react";
-import clock from "../assets/icons/clock.svg";
-import experience from "../assets/icons/experience.svg";
-import locationIcon from "../assets/icons/location.svg";
-import rupee from "../assets/icons/rupee.svg";
-import star from "../assets/icons/star.svg";
+
+import time from '../assets/opportunity_time.png'
+import experience from '../assets/opportunity_bag.png'
+import place from '../assets/opportunity_location.png'
+import starIcon from '../assets/Star_icon.png'
+
+
+
+function formatPostedDate(dateString) {
+  const postedDate = new Date(dateString);
+  const today = new Date();
+
+  const diffInMs = today - postedDate;
+  const diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
+
+  if (diffInDays === 0) return "Posted: today";
+  if (diffInDays === 1) return "Posted: 1 day ago";
+  if (diffInDays > 1 && diffInDays <= 30) return `Posted: ${diffInDays} days ago`;
+  if (diffInDays > 30 && diffInDays <= 60) return `Posted: 1+ month ago`;
+  if (diffInDays > 60 && diffInDays <= 90) return `Posted: 2+ months ago`;
+
+  return `Posted: Long ago`;
+}
+
+export default formatPostedDate;
 
 export const SearchJobs = () => {
+  const navigate = useNavigate();
+
+  const workTypeOptions = ['On-site', 'Remote', 'Hybrid'];
+  const locationOptions = ['Bangalore', 'Hyderabad', 'Chennai', 'Mumbai'];
+
   const [showNotification, setShowNotification] = useState(false);
   const newNotificationsCount = notificationsData.filter(n => n.isNew).length;
 
+  const [showAllLocations, setShowAllLocations] = useState(false);
   const [checkedfilter, setCheckedfilter] = useState([]);
+  const visibleLocations = showAllLocations
+    ? locationOptions
+    : locationOptions.slice(0, 3);
 
   const handleClearAll = () => {
     setCheckedfilter([]);
@@ -62,8 +91,7 @@ export const SearchJobs = () => {
     })
   }
 
-  const workTypeOptions = ['On-site', 'Remote', 'Hybrid'];
-  const locationOptions = ['Bangalore', 'Hyderabad', 'Chennai', 'Mumbai'];
+
 
   return (
     <>
@@ -140,25 +168,34 @@ export const SearchJobs = () => {
                 ))}
               </div>
             </div>
-            <div className='filter-category'>
-              <div className='title'>Location</div>
+            <div className="filter-category">
+              <div className="title">Location</div>
 
-              <div className='filter-options'>
-                {locationOptions.map((date, index) => (
-                  <div key={`filter-${index}`} className='filter-option'>
+              <div className="filter-options">
+                {visibleLocations.map((date, index) => (
+                  <div key={`location-${index}`} className="filter-option">
                     <input
                       type="checkbox"
-                      id={`filter-${index}`}
-                      name="filter"
+                      id={`location-${index}`}
                       value={date}
                       onChange={handleSelectfilter}
                       checked={checkedfilter.includes(date)}
                     />
-                    <label htmlFor={`filter-${index}`}>{date}</label>
+                    <label htmlFor={`location-${index}`}>{date}</label>
                   </div>
                 ))}
               </div>
+
+              {locationOptions.length > 3 && (
+                <div
+                  className="view-more"
+                  onClick={() => setShowAllLocations(!showAllLocations)}
+                >
+                  {showAllLocations ? "View Less" : "View More"}
+                </div>
+              )}
             </div>
+
           </div>
 
           <div className='main-jobs-section'>
@@ -173,26 +210,35 @@ export const SearchJobs = () => {
                       <div className="company-row">
                         <span>{job.company}</span>
                         <span className="rating">
-                          <img src={star} className="icon" />
-                           {job.ratings} | {job.reviewNo}+ reviews
+                          <img src={starIcon} className="icon" />
+                          {job.ratings} | {job.reviewNo}+ reviews
                         </span>
                       </div>
                     </div>
 
-                    <div className="logo-box">
-                      <img src={job.logo} alt={job.company} />
+                    <div>
+                      {job.logo ? (
+                        <img
+                          src={job.logo}
+                          alt={job.company}
+                          className="job-logo"
+                        />
+                      ) : (
+                        <div className="job-logo-placeholder">
+                          {job.company.charAt(0).toUpperCase()}
+                        </div>
+                      )}
                     </div>
                   </div>
 
                   <div className="job-info">
                     <span>
-                      <img src={clock} className="icon" />
+                      <img src={time} className="icon" />
                       {job.duration}
                     </span>
 
                     <span>
-                      <img src={rupee} className="icon" />
-                      {job.salary} LPA
+                      ₹ {job.salary} LPA
                     </span>
 
                     <span>
@@ -201,7 +247,7 @@ export const SearchJobs = () => {
                     </span>
 
                     <span>
-                      <img src={locationIcon} className="icon" />
+                      <img src={place} className="icon" />
                       {job.location}
                     </span>
                   </div>
@@ -209,7 +255,7 @@ export const SearchJobs = () => {
 
                   <div className="job-info">
                     <span>
-                      <img src={clock} className="icon" />
+                      <img src={time} className="icon" />
                       Shift: {job.Shift}
                     </span>
 
@@ -222,12 +268,12 @@ export const SearchJobs = () => {
 
                   <div className="job-footer">
                     <span>
-                      Posted: {job.posted} | Openings: {job.openings} | Applicants: {job.applicants}
+                      {formatPostedDate(job.posted)} | Openings: {job.openings} | Applicants: {job.applicants}
                     </span>
 
                     <div>
                       <button className="save-btn">Save</button>
-                      <button className="apply-btn">Apply</button>
+                      <button className="apply-btn" >Apply</button>
                     </div>
                   </div>
 
