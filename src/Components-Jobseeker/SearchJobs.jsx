@@ -43,7 +43,8 @@ export const SearchJobs = () => {
   const navigate = useNavigate();
 
   const workTypeOptions = ['On-site', 'Remote', 'Hybrid'];
-  const locationOptions = ['Bangalore', 'Hyderabad', 'Chennai', 'Mumbai'];
+  const locationOptions = ["Ahmedabad","Bengaluru","Chandigarh","Chennai","Coimbatore","Delhi/NCR","Gurugram","Hyderabad","Indore","Jaipur","Kochi","Kolkata","Mumbai","Nagpur","Navi Mumbai","New Delhi","Noida","Palakkad","Pune","Surat","Thane","Tiruppur","Vadodara"];
+
 
   const [showNotification, setShowNotification] = useState(false);
   const newNotificationsCount = notificationsData.filter(n => n.isNew).length;
