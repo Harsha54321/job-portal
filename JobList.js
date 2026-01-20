@@ -2065,7 +2065,7 @@ export const JobList = [
 
     IndustryType: ["IT Services", "Regional Sales"],
     Department: ["Field Marketing"],
-    WorkType: "Onsite",
+    WorkType: "On-site",
     Shift: "Rotational",
     duration: "Permanent",
 
@@ -2285,7 +2285,7 @@ export const JobList = [
 
     IndustryType: ["Cloud Services", "Site Reliability Engineering"],
     Department: ["DevOps", "SRE", "Infrastructure"],
-    WorkType: "Onsite",
+    WorkType: "On-site",
     Shift: "Rotational",
     duration: "Permanent",
 
